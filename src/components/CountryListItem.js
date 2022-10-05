@@ -1,9 +1,12 @@
 const CountryListItem = ({country}, {onClick}) => {
     
+    const handleClick = () => {
+        onClick(country)
+    };
+
     return (
         <>
-        <li>  {country.name.common}</li><br/>
-        <button type="submit" value="submit" onClick={onClick}>Visited</button>
+        <li onClick={handleClick} key={country.name.common}>  {country.name.common}</li>
         </>
        
     );

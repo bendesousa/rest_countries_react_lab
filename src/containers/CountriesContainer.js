@@ -5,6 +5,7 @@ import VisitedCountriesList from "../components/VisitedCountriesList";
 const CountriesContainer = () => {
 
     const [countries, setCountries] = useState([]);
+    const [visitedCountries, setVisitedCountries] = useState([]);
 
     const fetchCountries = () => {
         fetch("https://restcountries.com/v3.1/all")
@@ -24,8 +25,9 @@ const CountriesContainer = () => {
     // The country would appear on one of two of the lists depending on this state
     const visitCountry = (visitedCountry) =>{
 
-        const updatedCountries = [...countries, visitedCountry]
+        const updatedCountries = [...countries, !visitedCountry]
         setCountries(updatedCountries);
+        setVisitedCountries([...visitedCountries, visitedCountry]);
 
     }
 
